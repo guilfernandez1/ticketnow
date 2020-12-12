@@ -1,0 +1,93 @@
+@font-face {
+    src: url(../fonts/Roboto-Bold.ttf);
+    font-family: RobotoBold;
+}
+
+@font-face {
+    src: url(../fonts/Roboto-Regular.ttf);
+    font-family: RobotoRegular;
+}
+
+/*********** Main container ***********/
+.main-container {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 15% 85%;
+    grid-template-rows: 8% 92%;
+    grid-template-areas: 
+    "sidebar navbar"
+    "sidebar content"
+}
+/***************************************/
+
+/*********** Navbar container **********/
+#nav-bar-container {
+    background: #ecf0f1;
+    grid-area: navbar;
+}
+/***************************************/
+
+.line {
+    margin-top: 2.6em;
+}
+
+/*********** Sidebar container *********/
+#sidebar-container {
+    background: #202630;
+    grid-area: sidebar;
+}
+
+#sidebar-logo-container {
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-properties {
+    width: 50%;
+    height: auto;
+}
+
+#sidebar-content-container {
+    height: 75%;
+    color: white;
+    background: #2d323e;
+}
+
+.menu {
+    color: white;
+    font-family: RobotoBold;
+    margin: 1em;
+}
+
+.menu:hover {
+    text-decoration: none;
+    color: white;
+}
+
+div > ul {
+    list-style-type: none;
+    margin: 0;
+}
+
+div > ul > li > a{
+    font-family: RobotoRegular;
+    color: white;
+    font-size: 0.9em;
+}
+
+li > a:hover{
+    text-decoration: none;
+    color: white;
+    font-family: RobotoBold;
+}
+
+/***************************************/
+
+/*********** Content container *********/
+#content-container {
+    background: #ecf0f1;
+    grid-area: content;
+}
+/***************************************/
