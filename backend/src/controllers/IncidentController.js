@@ -3,16 +3,42 @@ const { Incident, User } = require('./../database/models');
 
 module.exports = {
 
-    async index(request, response) {
-        const incident = await Incident.findAll({
+    async findAll(request, response) {
+        const selector = {
             include: [{
                 model: User,
                 as: 'user',
                 attributes: ['name', 'email']
             }]
-        });
+        };
 
-        return response.json(incident);
+        const incident = await Incident.findAll(selector)
+            .catch((error) => {
+                return response.status(404).send(error);
+            });
+
+        return response.status(200).json(incident);
+    },
+
+    async find(request, response) {
+        const { userId } = request.params;
+        const selector = {
+            include: [{
+                model: User,
+                as: 'user',
+                attributes: ['name', 'email']
+            }],
+            where: {
+                user_id: userId
+            }
+        };
+
+        const incident = await Incident.findAll(selector)
+            .catch((error) => {
+                return response.status(404).send(error);
+            });
+
+        return response.status(200).json(incident);
     },
 
     async create(request, response) {
