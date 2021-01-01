@@ -41,7 +41,7 @@ module.exports = {
 
         await Incident.destroy(selector)
             .then(() => {
-                return response.status(200).send({ message: `Incident ${id} deleted` });
+                return response.status(200).json({ message: `Incident ${id} deleted` });
             }).catch((error) => {
                 return response.status(400).send(error);
             });
@@ -62,7 +62,7 @@ module.exports = {
 
         await Incident.update(data, selector)
             .then(() => {
-                return response.status(200).send();
+                return response.status(200).json({ message: `Incident ${id} updated` });
             }).catch((error) => {
                 return response.status(400).send(error);
             });
