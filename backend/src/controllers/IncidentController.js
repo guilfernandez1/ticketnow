@@ -42,7 +42,9 @@ module.exports = {
     },
 
     async create(request, response) {
-        const incident = await Incident.create(request.body);
+        const incident = await Incident.create(request.body).catch((error) => {
+            return response.status(400).send(error);
+        })
 
         return response.status(201).json(incident);
     },
