@@ -49,19 +49,23 @@ module.exports = {
     },
 
     async update(request, response) {
-        const { _id } = request.params;
-
-        const incident = await Incident.update(
-            {
-                title: request.body.title,
-                description: request.body.description,
-                status: request.body.status
-            }, {
+        const { id } = request.params;
+        const data = {
+            title: request.body.title,
+            description: request.body.description,
+            status: request.body.status
+        };
+        const selector = {
             where: {
-                id: request.params
-            },
-        });
+                id: id
+            }
+        };
 
-        return response.status(200).send({ text: 'tudo certo' });
+        const incident = await Incident.update(data, selector)
+            .then(() => {
+                return response.status(200).send();
+            }).catch((error) => {
+                return response.status(400).send(error);
+            });
     }
 };
