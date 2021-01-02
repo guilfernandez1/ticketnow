@@ -5,7 +5,7 @@ const IncidentController = require('./controllers/IncidentController');
 
 const routes = express.Router();
 
-routes.get('/users', UserController.index);
+routes.get('/users', UserController.findAll);
 routes.post('/register', UserController.create);
 
 routes.get('/incidents/all', IncidentController.findAll);
