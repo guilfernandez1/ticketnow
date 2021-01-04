@@ -8,15 +8,17 @@ import api from '../../services/api';
 export default function Incidents() {
     return (
         <div className="incidents-container">
-            <header>
-                <div>
-                    <a href="https://salaodoraapp.com.br">
-                        <img src={logoImg} alt="DoraApp" />
-                    </a>
-                    <span>Bem-vindo, Guilherme</span>
-                </div>
-                <Link className="button" to="/incidents/new"> Criar um incidente </Link>
-            </header>
+            <div className="header-container">
+                <header>
+                    <div>
+                        <a href="https://salaodoraapp.com.br">
+                            <img src={logoImg} alt="DoraApp" />
+                        </a>
+                        <span>Bem-vindo, Guilherme</span>
+                    </div>
+                    <Link className="button" to="/incidents/new"> Criar um incidente </Link>
+                </header>
+            </div>
             <h1>Incidentes cadastrados</h1>
             <ul>
                 <li>

@@ -9,9 +9,9 @@ export default function Routes() {
         <BrowserRouter>
             <Switch>
                 <Route exact path='/'><Redirect to="/incidents" /></Route>
-                <Route path='/incidents' component={Incidents} />
-                <Route path='/incidents/new' component={Incident} />
-                <Route path='/incidents/update' component={Incident} />
+                <Route exact path='/incidents' component={Incidents} />
+                <Route exact path='/incidents/new' component={Incident} />
+                <Route exact path='/incidents/update' component={Incident} />
             </Switch>
         </BrowserRouter>
     );
